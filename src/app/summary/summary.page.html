@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Summary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <div padding [style.width.%]="'100'">
+      <h2>Infrastructure</h2>
+      <div class="summary-label">Goal</div>
+      <div [style.width.%]=[infGoal] [style.height]="'10px'" [style.background-color]="'#f04141'">
+      </div>
+      <div class="summary-label">Actual</div>
+      <div [style.width.%]=[infActual] [style.height]="'10px'" [style.background-color]="'#f04141'">
+      </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <div padding [style.width.%]="'100'">
+      <h2>Strategy</h2>
+      <div class="summary-label">Goal</div>
+      <div [style.width.%]=[strGoal] [style.height]="'10px'" [style.background-color]="'#222428'">
+      </div>
+      <div class="summary-label">Actual</div>
+      <div [style.width.%]=[strActual] [style.height]="'10px'" [style.background-color]="'#222428'">
+      </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <div padding [style.width.%]="'100'">
+      <h2>Revenue</h2>
+      <div class="summary-label">Goal</div>
+      <div [style.width.%]=[revGoal] [style.height]="'10px'" [style.background-color]="'#3880ff'">
+      </div>
+      <div class="summary-label">Actual</div>
+      <div [style.width.%]=[revActual] [style.height]="'10px'" [style.background-color]="'#3880ff'">
+      </div>
+    </div>
+  </ion-item>
+
+
+</ion-content>

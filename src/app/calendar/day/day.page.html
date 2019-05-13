@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Task list - Day {{ title }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button [routerLink]="['/calendar-help']">
+        <ion-icon name="help-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card id="new-task">
+          <ion-card-header>
+            <ion-card-title>New Task</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">Task</ion-label>
+              <ion-select placeholder="Select One" [(ngModel)]="selectedTask">
+                <ion-select-option *ngFor="let task of tasks">{{ task.label }}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Duration</ion-label>
+              <ion-datetime display-format="mm:ss" min="00:00:01" max="08:00:00" [(ngModel)]="duration"></ion-datetime>
+            </ion-item>
+            <div margin-vertical text-right>
+              <ion-button fill="outline" color="danger" id="btn-cancel" (click)="onClear()">
+                <ion-icon name="close" slot="start"></ion-icon>Cancel
+              </ion-button>
+              <ion-button id="btn-confirm" (click)="onAddItem()">
+                <ion-icon name="add" slot="start"></ion-icon>Add Task
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let item of taskListItems" [ngClass]="item.category.toLowerCase()">
+            <ion-label>{{ item.duration }} {{ item.task }}</ion-label>
+            <ion-icon slot="end" name="trash" color="primary" (click)="onDelete(item.id)"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

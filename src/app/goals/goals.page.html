@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Goals</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Set Goals</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-label color="danger">Infrastructure</ion-label>
+      <ion-item>
+        <ion-range color="danger" min="0" max="100" step="5" [(ngModel)]="infrastructure">
+          <ion-icon size="small" slot="start" name="add"></ion-icon>
+          <ion-icon slot="end" name="add"></ion-icon>
+        </ion-range>
+      </ion-item>
+      <div margin-vertical></div>
+      <ion-label color="dark">Strategy</ion-label>
+      <ion-item>
+        <ion-range color="dark" min="0" max="100" step="5" [(ngModel)]="strategy">
+          <ion-icon size="small" slot="start" name="add"></ion-icon>
+          <ion-icon slot="end" name="add"></ion-icon>
+        </ion-range>
+      </ion-item>
+      <div margin-vertical></div>
+      <ion-label color="primary">Revenue</ion-label>
+      <ion-item>
+        <ion-range color="primary" min="0" max="100" step="5" [(ngModel)]="revenue">
+          <ion-icon size="small" slot="start" name="add"></ion-icon>
+          <ion-icon slot="end" name="add"></ion-icon>
+        </ion-range>
+      </ion-item>
+
+      <div margin-vertical text-right>
+        <ion-button id="btn-save" (click)="onSetGoals()">
+          <ion-icon name="save" slot="start"></ion-icon>Save
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
