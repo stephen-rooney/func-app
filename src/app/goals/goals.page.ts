@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GoalItem } from '../models/goal-item.model';
 import { TasksService } from '../tasks.service';
+import { MenuService } from './menu.service';
 
 @Component({
   selector: 'app-goals',
@@ -15,7 +16,7 @@ export class GoalsPage implements OnInit {
   goals: GoalItem[] = [];
 
 
-  constructor(private taskService: TasksService) { }
+  constructor(private taskService: TasksService, private menuService: MenuService) { }
 
   ngOnInit() {
     this.taskService.getGoals();
@@ -28,18 +29,21 @@ export class GoalsPage implements OnInit {
 
     this.goals.push(new GoalItem({
       category: 'Infrastructure',
-      percentage: Math.floor((this.infrastructure / total) * 100)
+      percentage: this.infrastructure === 0 ? 0 : Math.floor((this.infrastructure / total) * 100)
     }));
     this.goals.push(new GoalItem({
       category: 'Strategy',
-      percentage: Math.floor((this.strategy / total) * 100)
+      percentage: this.strategy === 0 ? 0 : Math.floor((this.strategy / total) * 100)
     }));
     this.goals.push(new GoalItem({
       category: 'Revenue',
-      percentage: 100 - (Math.floor((this.infrastructure / total) * 100) + Math.floor((this.strategy / total) * 100))
+      percentage: this.revenue === 0
+        ? 0 : 100 - (Math.floor((this.infrastructure / total) * 100) + Math.floor((this.strategy / total) * 100))
     }));
 
     this.taskService.updateGoals(this.goals);
+
+    this.menuService.setGoals();
   }
 
 }

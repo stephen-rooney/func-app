@@ -1,6 +1,12 @@
 <ion-tabs>
 
-  <ion-tab-bar slot="calendar">
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
     <ion-tab-button tab="calendar">
       <ion-icon name="calendar"></ion-icon>
       <ion-label>Calendar</ion-label>
@@ -14,6 +20,7 @@
     <ion-tab-button tab="goals">
       <ion-icon name="ribbon"></ion-icon>
       <ion-label>Goals</ion-label>
+      <ion-badge *ngIf="!goalsSet" color="danger">i</ion-badge>
     </ion-tab-button>
   </ion-tab-bar>
 

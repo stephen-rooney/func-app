@@ -20,7 +20,20 @@
       "resources": {
         "files": [
           "/assets/**",
-          "/svg/**",
+          "/svg/ios-arrow-back.svg",
+          "/svg/ios-arrow-forward.svg",
+          "/svg/ios-trash.svg",
+          "/svg/ios-add.svg",
+          "/svg/ios-close.svg",
+          "/svg/ios-save.svg",
+          "/svg/ios-help-circle-outline.svg",
+          "/svg/md-arrow-back.svg",
+          "/svg/md-arrow-forward.svg",
+          "/svg/md-trash.svg",
+          "/svg/md-add.svg",
+          "/svg/md-close.svg",
+          "/svg/md-save.svg",
+          "/svg/md-help-circle-outline.svg",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }
